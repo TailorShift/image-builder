@@ -1,0 +1,154 @@
+name = "tailorshift-edge-blueprint"
+description = "Blueprint file for the TailorShift edge images"
+version = "0.0.1"
+modules = []
+groups = []
+
+################## base packages
+
+[[packages]]
+name = "insights-client"
+version = "*"
+
+[[packages]]
+name = "rhc"
+version = "*"
+
+[[packages]]
+name = "subscription-manager"
+version = "*"
+
+[[packages]]
+name = "redhat-release"
+version = "*"
+
+
+[[packages]]
+name = "pcp"
+version = "*"
+
+
+[[packages]]
+name = "tuned"
+version = "*"
+
+################## openscap
+
+
+[[packages]]
+name = "openscap"
+version = "*"
+
+
+[[packages]]
+name = "openscap-scanner"
+version = "*"
+
+
+[[packages]]
+name = "scap-workbench"
+version = "*"
+
+[[packages]]
+name = "scap-security-guide"
+version = "*"
+
+
+################## cockpit
+
+[[packages]]
+name = "cockpit"
+version = "*"
+
+[[packages]]
+name = "cockpit-machines"
+version = "*"
+
+
+[[packages]]
+name = "cockpit-podman"
+version = "*"
+
+
+[[packages]]
+name = "cockpit-system"
+version = "*"
+
+
+[[packages]]
+name = "cockpit-bridge"
+version = "*"
+
+
+[[packages]]
+name = "cockpit-pcp"
+version = "*"
+
+
+[[packages]]
+name = "cockpit-composer"
+version = "*"
+
+
+[[packages]]
+name = "cockpit-storaged"
+version = "*"
+
+
+[[packages]]
+name = "cockpit-session-recording"
+version = "*"
+
+
+################## KVM 
+
+[[packages]]
+name = "virt-install"
+version = "*"
+
+[[packages]]
+name = "libvirt-daemon-config-network"
+version = "*"
+
+[[packages]]
+name = "libvirt-daemon-kvm"
+version = "*"
+
+[[packages]]
+name = "qemu-kvm"
+version = "*"
+
+[[packages]]
+name = "libguestfs-tools"
+version = "*"
+
+[[packages]]
+name = "python3-libguestfs"
+version = "*"
+
+[[packages]]
+name = "virt-top"
+version = "*"
+
+
+[customizations.services]
+enabled = ["cockpit", "insights-client"]
+
+
+[customizations.firewall]
+ports = ["9090:tcp"]
+
+
+[[customizations.sshkey]]
+user = "root"
+key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDTFVM3evjG+eZNJhpbIRhvkGAOhraEKrjcq4TBVJDQNhzhDiwcse25HA7T4nlh8kHluL5vidt5/hH3Rbn37XANZ3G4AgXWjKqFXFohO973THcjxmnyuTq1EXU0VN/liAfaW3y7yoNH0wQ81grgd3eywMEVMSnEnwd6a21Incc4GjPoGjtOzbNJNhTzV/p8X0J9qZkPIIVRWRJ/pwbLUplb+s8+PG5aZB0++LVIJg18/YhWYCyEfeaI9PgWw1mF7caM0upR3mmdkCNoUxywLs2juawN+Leg1LKYvk8RTjlNNTsCt3sw9fWOl6QFP4u/917GPOT3SUqFL0kJa8QD2DnQDPpJsyVd+6KdLxnQ9N7exDcbSsqKCLSHVJy4HPI5zX1FaKUa8x//XBmZZznAJ4+ZjIRUxHLqDNMEtmsBj7l0CVzkzwmODY7EH85d10AxvBM0vSWZFo99xg0Ad0YD1KMmp9sDY3koHiPqGVeANYPIkpFRse5K1PT5nFdTts0BcfU= ww930\\a892111@DESKTOP-9T7R43Q"
+
+
+[[customizations.user]]
+name = "admin"
+description = "Admin user"
+password = '$6$qv2noFEncW7xVTUi$pVgzaSg04ko2nu/uvdH7iyArpDtC9iJm6AO4nmDOvNFJPVWToPMEhdrrtF.sePVO.H2/IbeUieWOVjiOHCeHI0'
+key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDTFVM3evjG+eZNJhpbIRhvkGAOhraEKrjcq4TBVJDQNhzhDiwcse25HA7T4nlh8kHluL5vidt5/hH3Rbn37XANZ3G4AgXWjKqFXFohO973THcjxmnyuTq1EXU0VN/liAfaW3y7yoNH0wQ81grgd3eywMEVMSnEnwd6a21Incc4GjPoGjtOzbNJNhTzV/p8X0J9qZkPIIVRWRJ/pwbLUplb+s8+PG5aZB0++LVIJg18/YhWYCyEfeaI9PgWw1mF7caM0upR3mmdkCNoUxywLs2juawN+Leg1LKYvk8RTjlNNTsCt3sw9fWOl6QFP4u/917GPOT3SUqFL0kJa8QD2DnQDPpJsyVd+6KdLxnQ9N7exDcbSsqKCLSHVJy4HPI5zX1FaKUa8x//XBmZZznAJ4+ZjIRUxHLqDNMEtmsBj7l0CVzkzwmODY7EH85d10AxvBM0vSWZFo99xg0Ad0YD1KMmp9sDY3koHiPqGVeANYPIkpFRse5K1PT5nFdTts0BcfU= ww930\\a892111@DESKTOP-9T7R43Q"
+home = "/home/admin/"
+shell = "/usr/bin/bash"
+groups = ["users", "wheel"]
