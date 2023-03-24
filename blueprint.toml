@@ -136,7 +136,7 @@ enabled = ["cockpit", "insights-client"]
 
 
 [customizations.firewall]
-ports = ["9090:tcp"]
+ports = ["9090:tcp", "8080:tcp"]
 
 
 [[customizations.sshkey]]
